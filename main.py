@@ -108,7 +108,7 @@ class Initiate(FakeOptions,RealOptions):
                     RealOptions.driver.quit()
                     time.sleep(3)
 
-                    CopiedOptions.driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_3.exe",options=RealOptions.options)
+                    driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_3.exe",options=RealOptions.options)
                     time.sleep(5)
                     driver.get(url + str(page))
                     product_locator()
