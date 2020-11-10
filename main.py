@@ -16,7 +16,6 @@ class RealOptions:
     options = webdriver.ChromeOptions()
     options.add_argument("user-data-dir=C:\\Users\\swagabit\\AppData\\Local\\Google\\Chrome\\User Data")
     options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_2.exe", options=options)
 
 
 
@@ -25,18 +24,17 @@ class FakeOptions:
     options.add_argument("user-data-dir=C:\\Users\\swagabit\\AppData\\Local\\Google\\Chrome\\")
     options.add_argument("--disable-popup")
     options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_1.exe", options=options)
 
 
 
 class Initiate(FakeOptions,RealOptions):
     def __init__(self):
-
+        driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_2.exe", options=FakeOptions.options)
         time.sleep(3)
         url = "https://www.yad2.co.il/realestate/rent/flats?page="
         page = 2
         current_url = url+str(page)
-        FakeOptions.driver.get(current_url)
+        driver.get(current_url)
         time.sleep(5)
 
         information = []
@@ -123,7 +121,6 @@ class Initiate(FakeOptions,RealOptions):
             iterator()
 
             #closing after each 5 pages
-            print("scrapped:",driver.current_url)
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
