@@ -108,34 +108,11 @@ class Initiate(FakeOptions,RealOptions):
                     RealOptions.driver.quit()
                     time.sleep(3)
 
-                    CopiedOptions.driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_3.exe",options=CopiedOptions.options)
+                    CopiedOptions.driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_3.exe",options=RealOptions.options)
                     time.sleep(5)
                     driver.get(url + str(page))
                     product_locator()
 
-            """
-            # appending data to excel file:
-            with open('new.csv', 'w', newline='', encoding='utf-8-sig', ) as file:
-                writer = csv.writer(file)
-                writer.writerow([driver.current_url])
-                writer.writerow([item_1.text, number_1])
-                writer.writerow(item_1.text, number_1)
-
-                all_data = [item_1.text, number_1, item_2.text, number_2, item_3.text, number_3, item_4.text, number_4,
-                            item_5.text, number_5, item_6.text, number_6, item_7.text, number_7, item_8.text, number_8,
-                            item_9.text, number_9, item_10.text, number_10, item_11.text, number_11, item_12.text,
-                            number_12, item_13.text, number_13, item_14.text, number_14, item_15.text, number_15,
-                            item_16.text, number_16, item_17.text, number_17, item_18.text, number_18, item_19.text,
-                            number_19, item_20.text, number_20, item_21.text, number_21, item_22.text, number_22,
-                            item_23.text, number_23, item_24.text, number_24, item_25.text, number_25, item_26.text,
-                            number_26, item_27.text, number_27, item_28.text, number_28, item_29.text, number_29,
-                            item_30.text, number_30, item_31.text, number_31, item_32.text, number_32, item_33.text,
-                            number_33, item_34.text, number_34, item_35.text, number_35, item_36.text, number_36,
-                            item_37.text, number_37, item_38.text, number_38, item_39.text, number_39, item_40.text,
-                            number_40]
-
-                writer.writerow(all_data)
-            """
         def nextPage(url,page,driver):
             driver.get(url + str(page))
             time.sleep(2)
