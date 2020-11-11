@@ -1,1 +1,1 @@
-selenium
+python==3.8

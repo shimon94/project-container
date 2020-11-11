@@ -1,6 +1,6 @@
-FROM ubuntu 20.10
+FROM python
 
-WORKDIR 
+WORKDIR C:\Users\swagabit\Documents\GitHub\test reposetry\src\project-container
 
 COPY main.py
 CMD ["python", "./main.py"]

@@ -1,0 +1,10 @@
+{
+  "name": "project container",
+  "version": "1.0.0",
+  "description": "Demo application for testing automation",
+  "main": "main.py",
+  "author": "Sh",
+  "scripts": {
+    "start": "main.py"
+  }
+}
