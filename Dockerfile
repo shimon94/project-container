@@ -1,10 +1,8 @@
-FROM python:3
+FROM ubuntu 20.10
 
 WORKDIR 
 
 COPY main.py
-
-
 CMD ["python", "./main.py"]
 <<<<<<< HEAD:DockerFile.txt
 
