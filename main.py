@@ -5,14 +5,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+
+
+
+
 class MyOptions:
     options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
+    options.add_argument('--no-sandbox')
+    options.add_argument('--window-size=1420,1080')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
 
 
 class Initiate(MyOptions):
     def __init__(self):
-        driver = webdriver.Chrome(executable_path="chromedriver", options=MyOptions.options)
+        driver = webdriver.Chrome(options=MyOptions.options)
         time.sleep(3)
         url = "https://www.yad2.co.il/realestate/rent/flats?page="
         page = 2
@@ -56,7 +63,7 @@ class Initiate(MyOptions):
                         return
 
             product_locator()
-            current_url = FakeOptions.driver.current_url
+            current_url = driver.current_url
 
             #yad2 doesnt support IE
             if "internet-explorer" in driver.current_url:
@@ -65,7 +72,7 @@ class Initiate(MyOptions):
 
                 
             #first captcha
-            if "validate" in FakeOptions.driver.current_url:
+            if "validate" in driver.current_url:
                 print("Run!!! captcha quitting...")
                 driver.quit()
                 time.sleep(3)
@@ -82,7 +89,7 @@ class Initiate(MyOptions):
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
-                driver = webdriver.Chrome(executable_path="chromedriver", options=MyOptions)
+                driver = webdriver.Chrome(options=MyOptions)
 
             nextPage(url,page,driver)
 
