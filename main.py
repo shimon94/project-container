@@ -5,10 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-class Initiate():
+class MyOptions:
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+
+
+class Initiate(MyOptions):
     def __init__(self):
-        options =ChromeOptions()
-        driver = webdriver.Chrome(executable_path="chromedriver", options=options)
+        driver = webdriver.Chrome(executable_path="chromedriver", options=MyOptions.options)
         time.sleep(3)
         url = "https://www.yad2.co.il/realestate/rent/flats?page="
         page = 2
@@ -58,7 +62,7 @@ class Initiate():
             if "internet-explorer" in driver.current_url:
                 print("[ERROR] IE is not supported. Restarting...")
                 driver.quit()
-                break
+
                 
             #first captcha
             if "validate" in FakeOptions.driver.current_url:
@@ -78,7 +82,7 @@ class Initiate():
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
-                driver = webdriver.Chrome(executable_path="chromedriver", options=options)
+                driver = webdriver.Chrome(executable_path="chromedriver", options=MyOptions)
 
             nextPage(url,page,driver)
 
