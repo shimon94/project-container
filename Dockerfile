@@ -1,12 +1,12 @@
 FROM python:latest
 
 
-WORKDIR C:\Users\swagabit\Documents\GitHub\test reposetry\src\project-container
+WORKDIR /app
 
-COPY main.py
-COPY package.jason
-CMD ["python", "./main.py"]
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-RUN make /main.py
-CMD python C:\Users\swagabit\Documents\GitHub\test reposetry\src\project-container\main.py
+COPY /app .
+CMD ["python", "main.py"]
+
 
