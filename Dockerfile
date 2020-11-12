@@ -8,5 +8,5 @@ RUN pip install -r requirements.txt
 
 COPY chromedriver
 COPY main
-CMD ["python", "main.py"]
+run python main.py
 
