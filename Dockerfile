@@ -1,12 +1,13 @@
 FROM python:latest
 
 
-WORKDIR /app
+WORKDIR /app/src
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY chromedriver
 COPY main
-run python main.py
+RUN python main.py
 
+CMD ["python","main"]
