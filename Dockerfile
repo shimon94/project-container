@@ -10,4 +10,3 @@ COPY chromedriver
 COPY /app .
 CMD ["python", "main.py"]
 
-

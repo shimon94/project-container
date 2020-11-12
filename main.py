@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-class Initiate(FakeOptions,RealOptions):
+class Initiate():
     def __init__(self):
         options =ChromeOptions()
         driver = webdriver.Chrome(executable_path="chromedriver", options=options)
@@ -78,7 +78,7 @@ class Initiate(FakeOptions,RealOptions):
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
-                driver = webdriver.Chrome(executable_path="C:\webdriver\‏‏chromedriver_5.exe", options=FakeOptions.options)
+                driver = webdriver.Chrome(executable_path="chromedriver", options=options)
 
             nextPage(url,page,driver)
 
