@@ -17,7 +17,7 @@ import pytest
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
-    driver = webdriver.Chrome(executable_path="C:\webdriver\chromedriver.exe")
+    driver = webdriver.Chrome(executable_path="/usr/bin/google-chrome")
     request.cls.driver = driver
     yield
     driver.close()
@@ -25,7 +25,7 @@ def chrome_driver_init(request):
 
 @pytest.mark.usefixtures("chrome_driver_init")
 class BasicTest:
-    driver = webdriver.Chrome(executable_path="C:\webdriver\chromedriver.exe")
+    driver = webdriver.Chrome(executable_path="/usr/bin/google-chrome")
     driver.get("https://www.yad2.co.il/realestate/rent/flats?page=2")
     time.sleep(5)
     for i in range(40):
