@@ -6,13 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-
-
-
 class MyOptions:
     options = webdriver.ChromeOptions()
-
-
+    
 class Initiate(MyOptions):
     def __init__(self):
         driver = webdriver.Chrome(options=MyOptions.options)
