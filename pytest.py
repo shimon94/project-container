@@ -6,14 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pytest
 
-def inc(x):
-    return x + 1
-
-
-def test_answer():
-    assert inc(3) == 5
-
-
 def testSetup():
     assert testSetup() == "setup"
     options = webdriver.ChromeOptions()
