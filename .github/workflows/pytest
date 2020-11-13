@@ -1,4 +1,4 @@
-name: Python package
+(name: Python package
 
 on: [push]
 
@@ -30,3 +30,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+)
