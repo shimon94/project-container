@@ -11,10 +11,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class MyOptions:
     options = webdriver.ChromeOptions()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--window-size=1420,1080')
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
 
 
 class Initiate(MyOptions):
@@ -84,13 +80,12 @@ class Initiate(MyOptions):
         while True:
             page+=1
             iterator()
-
             #closing after each 5 pages
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
                 driver = webdriver.Chrome(options=MyOptions)
-
+                 
             nextPage(url,page,driver)
 
 
