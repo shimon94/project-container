@@ -11,14 +11,13 @@ class MyOptions:
     
 class Initiate(MyOptions):
     def __init__(self):
-        driver = webdriver.Chrome(options=MyOptions.options)
+        driver = webdriver.Chrome('/usr/bin/google-chrome', options=MyOptions.options)
         time.sleep(3)
         url = "https://www.yad2.co.il/realestate/rent/flats?page="
         page = 2
         current_url = url+str(page)
         driver.get(current_url)
         time.sleep(5)
-
         def iterator():
             def product_locator():
                 while True:
@@ -79,7 +78,7 @@ class Initiate(MyOptions):
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
-                driver = webdriver.Chrome(options=MyOptions)
+                driver = webdriver.Chrome('/usr/bin/google-chrome', options=MyOptions)
                  
             nextPage(url,page,driver)
 
