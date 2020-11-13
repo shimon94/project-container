@@ -43,7 +43,6 @@ class Initiate(MyOptions):
                                 contact_seller.click()
 
                                 time.sleep(1)
-                                information.append(phone_number)
 
                         i+=1
 
