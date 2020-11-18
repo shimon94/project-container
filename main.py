@@ -5,7 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-
+#Seperated class to change options and profiles while script is runing.
+#Use it for random user agents, and ip rotation best for projects that need multiple browsers in the same session.  
 class MyOptions:
     options = webdriver.ChromeOptions()
     
@@ -20,6 +21,7 @@ class Initiate(MyOptions):
         time.sleep(5)
         def iterator():
             def product_locator():
+                #iterates between 40 listings each page
                 while True:
                     try:
                         for i in range(41):
@@ -28,13 +30,13 @@ class Initiate(MyOptions):
                             a.click()
                             time.sleep(1)
                             print(i)
-
+                            #id may be either of the options below.
                             phone_number = WebDriverWait(driver, 10).until(
                                 EC.presence_of_element_located((By.ID, "phone_number_{}".format(i))))
 
                             contact_seller = WebDriverWait(driver, 10).until(
                                 EC.presence_of_element_located((By.ID, "contact_seller_{}".format(i))))
-
+                                    
                             if phone_number.is_displayed():
                                 phone_number.click()
 
@@ -63,7 +65,7 @@ class Initiate(MyOptions):
                 
             #first captcha
             if "validate" in driver.current_url:
-                print("Run!!! captcha quitting...")
+                print("Run!!! captcha quitting... (Demo mode, no handling with captcha for more help you may contact me.")
                 driver.quit()
                 time.sleep(3)
                 
@@ -74,11 +76,11 @@ class Initiate(MyOptions):
         while True:
             page+=1
             iterator()
-            #closing after each 5 pages
+            #closing after each 5 pages for 
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
-                driver = webdriver.Chrome('/usr/bin/google-chrome', options=MyOptions)
+                driver = webdriver.Chrome('your path', options=MyOptions.options)
                  
             nextPage(url,page,driver)
 
