@@ -6,13 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 #Seperated class to change options and profiles while script is runing.
-#Use it for random user agents, and ip rotation best for projects that need multiple browsers in the same session.  
+#Use it for random user agents, and ip rotation best for projects that need multiple browsers in the same session.
 class MyOptions:
     options = webdriver.ChromeOptions()
     
 class Initiate(MyOptions):
     def __init__(self):
-        driver = webdriver.Chrome('/usr/bin/google-chrome', options=MyOptions.options)
+        driver = webdriver.Chrome('your path', options=MyOptions.options)
         time.sleep(3)
         url = "https://www.yad2.co.il/realestate/rent/flats?page="
         page = 2
