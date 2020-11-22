@@ -49,15 +49,13 @@ class Initiate(MyOptions):
 
                     except ElementClickInterceptedException:
                         pass
-                    except NoSuchElementException:
-                        return
-                    except TimeoutException:
+                    except NoSuchElementException, TimeoutException:
                         return
 
             product_locator()
             current_url = driver.current_url
 
-            #yad2 doesnt support IE
+            #site doesnt support IE
             if "internet-explorer" in driver.current_url:
                 print("[ERROR] IE is not supported. Restarting...")
                 driver.quit()
@@ -76,7 +74,7 @@ class Initiate(MyOptions):
         while True:
             page+=1
             iterator()
-            #closing after each 5 pages for 
+            #closing after each 5 pages 
             if page % 5 == 0:
                 print("Scrapped 5 pages, restarting for better performance...")
                 driver.quit()
